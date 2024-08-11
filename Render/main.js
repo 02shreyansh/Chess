@@ -11,9 +11,7 @@ function pieceRender(data){
                 squareEl.appendChild(piece);
             }
         });
-        
     });
-    
 }
 function initGameRender(data){
     data.forEach(element => {
@@ -69,5 +67,4 @@ function initGameRender(data){
     });
     pieceRender(data);
 }
-
 export {initGameRender};

@@ -85,6 +85,4 @@ function whiteKing(currentPosition){
     };
 }
 
-
-
 export {blackPawn,whitePawn,whiteBishop,whiteKing,whiteQueen,whiteRook,whiteKnight,blackBishop,blackKing,blackQueen,blackRook,blackKnight};

@@ -4,8 +4,6 @@ function whitePawnClicked({piece}){
     if(piece.currentPosition[1]=="2"){
         console.log("init");
     }
-    
-    
 }
 function GlobalEvent(){
     ROOT_DIV.addEventListener("click",function(event){
