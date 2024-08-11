@@ -29,6 +29,15 @@ body{
     width: 100%;
     cursor: grab;
 }
+.highlight{
+    display: flex;
+    width:30px;
+    height: 30px;
+    margin: auto;
+    margin-top:21px ;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.17);
+}
 @media (max-width:600px) {
     #root{
         margin-top: 30vw;
@@ -48,7 +57,8 @@ body{
         align-items: center;
         height: 15vw;
     }
-    
-        
-
+    .highlight{
+        width: 40%;
+        height: 40%;
+    }
 }

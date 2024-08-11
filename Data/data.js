@@ -1,8 +1,13 @@
-export function Greet(){
+import { renderHighlight } from "../Render/main.js";
+function Greet(){
     alert("hello World");
 }
 function Square(color,id,piece){
-    return {color,id,piece};
+    const highlightRoundSquare=function(){
+        renderHighlight(this.id);
+        this.highlighted=true;
+    }
+    return {color,id,piece,highlightRoundSquare};
 }
 function SquareRow(rowId){
     const squareRow=[];

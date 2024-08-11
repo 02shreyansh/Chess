@@ -1,5 +1,6 @@
 import * as piece from "../Data/piece.js";
 import { ROOT_DIV } from "../helper/constants.js";
+import { globalState } from "../index.js";
 function pieceRender(data){
     data.forEach(row => {
         row.forEach(square => {
@@ -67,4 +68,22 @@ function initGameRender(data){
     });
     pieceRender(data);
 }
-export {initGameRender};
+
+
+function renderHighlight(squareid){
+    const highlghtspan =document.createElement("span");
+    highlghtspan.classList.add("highlight");
+    document.getElementById(squareid).appendChild(highlghtspan);
+    clearHighlight();
+}
+function clearHighlight(){
+    const flatData=globalState.flat();
+    flatData.forEach(el => {
+        if(el.highlighted){
+            
+        }
+        
+    });
+
+}
+export {initGameRender,renderHighlight,clearHighlight};
