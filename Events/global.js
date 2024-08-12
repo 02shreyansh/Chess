@@ -1,15 +1,26 @@
 import { ROOT_DIV } from "../helper/constants.js";
 import { globalState } from "../index.js";
+import { clearHighlight} from "../Render/main.js";
+import { selfHighlight } from "../Render/main.js";
+import { clearPervious } from "../Render/main.js";
+
 
 let highlght_state=false;
+let selfHighlight_state=null;
+
 function whitePawnClicked({piece}){
+    
     const current_pos=piece.currentPosition;
+    selfHighlight(current_pos);
+    clearPervious(selfHighlight_state);
+    selfHighlight_state=piece;
     const flatArray=globalState.flat();
     if(current_pos[1]=="2"){
         let highlightSquare=[
             `${current_pos[0]}${Number(current_pos[1]) +1}`,
             `${current_pos[0]}${Number(current_pos[1]) + 2}`
         ];
+        clearHighlight();
         highlightSquare.forEach(highlght => {
             globalState.forEach(row => {
                 row.forEach(element => {
@@ -18,9 +29,6 @@ function whitePawnClicked({piece}){
                     }
                 });
             });
-            // if(highlght_state) clearHighlight();
-            // renderHighlight(highlght);
-            // highlght_state=true;
         });
     }
 }

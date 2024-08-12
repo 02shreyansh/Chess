@@ -1,6 +1,17 @@
 import * as piece from "../Data/piece.js";
 import { ROOT_DIV } from "../helper/constants.js";
 import { globalState } from "../index.js";
+function clearPervious(piece){
+    if(piece){
+        const el=document.getElementById(piece.currentPosition);
+        el.style.background="";
+    }
+    
+}
+function selfHighlight(piece){
+    const el=document.getElementById(piece);
+    el.style.background="#f7f769";
+}
 function pieceRender(data){
     data.forEach(row => {
         row.forEach(square => {
@@ -74,16 +85,17 @@ function renderHighlight(squareid){
     const highlghtspan =document.createElement("span");
     highlghtspan.classList.add("highlight");
     document.getElementById(squareid).appendChild(highlghtspan);
-    clearHighlight();
+    
 }
 function clearHighlight(){
     const flatData=globalState.flat();
     flatData.forEach(el => {
         if(el.highlighted){
-            
+            document.getElementById(el.id).innerHTML="";
+            el.highlighted=false;
         }
         
     });
 
 }
-export {initGameRender,renderHighlight,clearHighlight};
+export {initGameRender,renderHighlight,clearHighlight,selfHighlight,clearPervious};
