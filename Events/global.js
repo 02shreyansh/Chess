@@ -1,9 +1,6 @@
 import { ROOT_DIV } from "../helper/constants.js";
 import { globalState } from "../index.js";
-import { clearHighlight} from "../Render/main.js";
-import { selfHighlight } from "../Render/main.js";
-import { clearPervious } from "../Render/main.js";
-
+import { clearHighlight,selfHighlight,clearPervious} from "../Render/main.js";
 
 let highlght_state=false;
 let selfHighlight_state=null;
