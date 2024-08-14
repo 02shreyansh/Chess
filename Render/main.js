@@ -1,6 +1,27 @@
 import * as piece from "../Data/piece.js";
 import { ROOT_DIV } from "../helper/constants.js";
 import { globalState } from "../index.js";
+function moveElement(piece,id){
+    const flatData=globalState.flat();
+    flatData.forEach(el => {
+        if(el.id== piece.currentPosition){
+            delete el.piece;
+        }
+        if(el.id==id){
+            el.piece=piece;
+        }
+        
+    });
+    clearHighlight();
+    const previousPiece=document.getElementById(piece.currentPosition);
+    previousPiece.style.background="";
+    const currentPiece=document.getElementById(id);
+    currentPiece.innerHTML=previousPiece.innerHTML;
+    previousPiece.innerHTML="";
+    piece.currentPosition=id;
+    
+
+}
 function clearPervious(piece){
     if(piece){
         const el=document.getElementById(piece.currentPosition);
@@ -98,4 +119,4 @@ function clearHighlight(){
     });
 
 }
-export {initGameRender,renderHighlight,clearHighlight,selfHighlight,clearPervious};
+export {initGameRender,renderHighlight,clearHighlight,selfHighlight,clearPervious,moveElement};
